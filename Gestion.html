@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css"> <!-- Enlace al archivo CSS externo -->
+    <title>Gestion</title>  <!-- Título de la página -->
+</head>
+
+ <!-- HEADER -->
+    <header class="header">
+        <h1>Gestion</h1>
+        
+<body>
+
+    <div class="caja-gestion">
+    <h2>Gestión de Presupuesto</h2>
+    <h4>En este apartado podemos gestionar nuestro presupuesto de 
+    manera sencilla introduciendo el monto total y se dividira 
+    siguiendo la regla de los 50/30/20 </h4>
+    
+    </header>
+
+    <input type="number" min="0" id="montoInput" placeholder="Ej. 2000">
+    <button id="btnCalcular" class="boton-chico">Calcular</button>
+
+    <!-- Contenedor de las barras superpuestas -->
+  <!-- Contenedor principal -->
+    <div class="barra-superpuesta-contenedor">
+        <!-- Fondo negro -->
+        <div class="barra-fondo-negro"></div>
+        
+        <!-- Las barras de colores DEBEN tener 'segmento-superpuesto' y su clase de color -->
+        <div id="barraAhorro" class="segmento-superpuesto ahorro"></div>
+        <div id="barraGustos" class="segmento-superpuesto gustos"></div>
+        <div id="barraNecesidades" class="segmento-superpuesto necesidades"></div>
+    </div>
+
+    <!-- Los textos de resultados igual van abajo para mayor claridad -->
+    <div class="resultados-textos">
+        <p>Necesidades (50%): $<span id="txtNecesidades">0</span></p>
+        <p>Gustos (30%): $<span id="txtGustos">0</span></p>
+        <p>Ahorro (20%): $<span id="txtAhorro">0</span></p>
+    </div>
+</div>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+                <div class="container text-center">
+            <button class="boton-chico" onclick="window.location.href='Index.html'">Salir</button>
+        </div>
+        <div class="container text-center">
+            Camote Team Software © 2026
+        </div>
+
+    </footer>
+    <script src="JavaScript/SCRIPTING.js"></script>
+</body>
+</html>

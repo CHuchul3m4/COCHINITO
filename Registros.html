@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css"> <!-- Enlace al archivo CSS externo -->
+    <title>Registros</title>  <!-- Título de la página -->
+</head>
+
+ <!-- HEADER -->
+    <header class="header">
+        <h1>Registros de gastos</h1>
+        <h4>en esta sección puedes registrar y gestionar tus gastos de manera mas sencilla</h4>
+    </header>
+
+<body>
+    
+    <div class="caja-registros">
+    <h2>Registro de Gastos</h2>
+        <p>Descripción del gasto</p>
+        <input type="text" id="descripcionRegistroInput" placeholder="ej. Comida, Transporte, Entretenimiento">
+        <p>Monto del gasto</p>
+        <input type="number" min="0" id="montoRegistroInput" placeholder="ej. 100.00">
+
+        <button id="btnAgregar" class="boton-chico">Agregar Gasto</button>
+    </div>
+
+    <div class="caja-registros">
+    <h2>Gastos Registrados</h2> 
+     <ul id="listaGastos"></ul>
+     <div class="reiniciar-boton">
+        <button id="btnReiniciar" class="boton-chico">Reiniciar Registros</button>
+     </div>
+     <p>Total de gastos: $<span id="txtTotalGastos">0.00</span></p>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="container text-center">
+            <button class="boton-chico" onclick="window.location.href='Index.html'">Salir</button>
+        </div>
+
+
+        <div class="container text-center">
+            Camote Team Software © 2026
+        </div>
+    </footer>
+    <script src="JavaScript/REGISTROS.js"></script>
+</body>
+</html>
