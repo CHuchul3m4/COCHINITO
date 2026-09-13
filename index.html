@@ -3,28 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icons/pig_animal_4443.webp" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/estilos.css"> <!-- Enlace al archivo CSS externo -->
     <title>Cochinito</title>  <!-- Título de la página -->
 </head>
 
- <!-- HEADER -->
+<body>
+
+    <!-- HEADER -->
     <header class="header">
-        <eyebrow>[BETA]</eyebrow>
+        <div class="mi-banner">
+            <div class="contenido-banner">
+                <h1>Bienvenido a mi sitio</h1>
+                <p>Descubre nuestros servicios especiales hoy.</p>
+                <a href="#" class="boton-banner">Saber más</a>
+            </div>
+        </div>
+        <a href="index.html">
+        <img src="Imagenes/Cochino.png" alt="Logo de Cochinito" class="logo"></a>
         <h1>Cochinito</h1>
         <h3>Sección de Finanzas de manera sencilla</h3>
         <h4>Esta es una aplicación web de finanzas. Desarrollada para la gestión de su presupuesto basado en la regla 50|30|20 </h4>
     </header>
 
-<body>
-
     <button onclick="window.location.href='Gestion.html'"> Gestion </button>
     <button onclick="window.location.href='Registros.html'"> Registro de Gastos </button>
     <button onclick="window.location.href='acercade.html'"> Acerca de </button>
     
-
-
-
+    <div>    
+        <!-- Botón de modo oscuro (con el icono por defecto) -->
+        <button id="theme-toggle" class="modo-boton">🌙</button>
+    </div>
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -32,6 +42,6 @@
             Camote Team Software © 2026
         </div>
     </footer>
-
+    <script src="JavaScript/SCRIPTING.js"></script>
 </body>
 </html>

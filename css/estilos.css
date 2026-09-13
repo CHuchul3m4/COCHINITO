@@ -1,14 +1,32 @@
+html {
+    -webkit-text-size-adjust: 100%; 
+    touch-action: manipulation;     
+}
+
+button, a, input, select {
+    -webkit-tap-highlight-color: transparent; 
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    box-shadow: none;
+}
+
 body {
     margin: 0;
+    display: flex;
     flex-direction: column; 
+    justify-content: flex-start;
+    padding-top: 20px;
     align-items: center;    
-    justify-content: center;
-    min-height: 100vh;      
+    min-height: 100vh;       
     text-align: center;     
-    background: #f5f5f7;
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: #1d1d1f;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -20,18 +38,19 @@ h1 {
     font-size: 56px;
     font-weight: 600;
     margin-bottom: 10px;
+    color: var(--text-color);
 }
 
 h3 {
     font-size: 22px;
     font-weight: 400;
-    color: #6e6e73;
+    color: var(--text-secondary);
     margin: 5px 0;
 }
 
 h4 {
     font-weight: 400;
-    color: #86868b;
+    color: var(--text-muted);
 }
 
 section {
@@ -43,9 +62,13 @@ section {
 p {
     font-size: 18px;
     line-height: 1.8;
-    color: #3a3a3c;
+    color: var(--text-p);
+    transition: color 0.3s ease;
 }
 
+/* ==========================================
+   IMÁGENES Y LISTAS
+   ========================================== */
 .imagen-central {
     text-align: center;
     margin: 60px 0;
@@ -66,78 +89,54 @@ ul {
 
 li {
     margin: 15px 0;
+    color: var(--text-p);
 }
 
-button {
+/* ==========================================
+   BOTONES Y CONTROLES (Dinámicos)
+   ========================================== */
+button, input, select {
     width: 100%;
     max-width: 300px;
     display: block;
     margin: 20px auto;
     padding: 16px;
     font-size: 18px;
-    background: white;
-    color: #1d1d1f;
-    border: 1px solid #d2d2d7;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
     border-radius: 14px;
     cursor: pointer;
     transition: all 0.25s ease;
+    box-sizing: border-box;
 }
 
 button:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 14px;
-    color: #86868b;
-
-}
 .boton-chico {
     padding: 6px 14px;     
-    font-size: 14px;        
+    font-size: 14px;         
     border-radius: 6px;     
-    border: 1px solid #d2d2d7;
-    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
     cursor: pointer;
+    max-width: none;
+    display: inline-block;
+    margin: 0;
 }
 
-.btn-chico:hover {
-    background-color: #e8e8ed;
-}
-/*Barras de progreso superpuestas estilo Apple/
-
-
-
-/* 1. Contenedor principal que define el tamaño y oculta los excesos */
-/* 1. EL CONTENEDOR: Aquí mandamos nosotros. Ancho fijo de 350px y centrado. */
-.barra-superpuesta-contenedor {
-    position: relative !important;
-    width: 100% !important;
-    max-width: 350px !important;    /* <--- ¡Esto frena que crezca a lo bruto! */
-    height: 22px !important;        /* <--- Altura fina de barra */
-    margin: 20px auto !important;   /* Centrado automático */
-    background-color: transparent;
-    border-radius: 11px;
-    overflow: hidden !important;
+.btn-chico:hover,
+.boton-chico:hover {
+    background-color: var(--hover-bg);
 }
 
-/* 2. LA BARRA NEGRA DE FONDO */
-.barra-fondo-negro {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    background-color: #1c1c1e !important;
-    z-index: 1;
-    border-radius: 11px;
-}
-
-/* 3. LAS BARRAS DE COLORES (Inician en 0 para la animación) */
-/* 1. EL CONTENEDOR */
+/* ==========================================
+   BARRAS DE PROGRESO SUPERPUESTAS
+   ========================================== */
 .barra-superpuesta-contenedor {
     position: relative !important;
     width: 100% !important;
@@ -149,31 +148,29 @@ footer {
     overflow: hidden !important;
 }
 
-/* 2. LA BARRA NEGRA DE FONDO */
 .barra-fondo-negro {
     position: absolute !important;
     top: 0;
     left: 0;
     width: 100% !important;
     height: 100% !important;
-    background-color: #1c1c1e !important;
+    background-color: var(--bar-bg) !important;
     z-index: 1;
     border-radius: 11px;
+    transition: background-color 0.3s ease;
 }
 
-/* 3. LAS BARRAS DE COLORES (Sin el !important en el width para que JS mande) */
 .segmento-superpuesto {
     position: absolute !important;
     top: 0;
     left: 0;
     height: 100% !important;
-    width: 0%;                         /* <--- Quitamos el !important de aquí */
+    width: 0%;
     border-radius: 11px;
     transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 2;
 }
 
-/* 4. COLORES Y JERARQUÍA (Z-INDEX) */
 .necesidades { 
     background-color: #0071e3 !important; 
     z-index: 4 !important; 
@@ -187,4 +184,136 @@ footer {
 .ahorro { 
     background-color: #34c759 !important; 
     z-index: 2 !important; 
+}
+
+/* ==========================================
+   BANNER DE NOTIFICACIÓN PWA
+   ========================================== */
+.mi-banner {
+    background: #1c1c1e;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box; 
+}
+
+.contenido-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 850px;
+    margin: 0 auto;
+    gap: 10px;
+    flex-wrap: nowrap; 
+}
+
+.contenido-banner h1 {
+    font-size: 13px !important;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.contenido-banner p {
+    font-size: 12px !important;
+    color: #aeaeb2;
+    margin: 0;
+    line-height: 1.2;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.boton-banner {
+    display: inline-block;
+    background: #0071e3;
+    color: white;
+    padding: 5px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-top: 0;
+    transition: background 0.2s ease;
+    max-width: none;
+    width: auto;
+}
+
+.boton-banner:hover {
+    background: #0077ed;
+    transform: none;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   MODOS DE COLOR (Variables Dinámicas)
+   ========================================== */
+:root {
+    --bg-color: #f5f5f7;
+    --text-color: #1d1d1f;
+    --text-p: #3a3a3c;
+    --text-secondary: #6e6e73;
+    --text-muted: #86868b;
+    --card-bg: #ffffff;
+    --border-color: #d2d2d7;
+    --hover-bg: #e8e8ed;
+    --bar-bg: #1c1c1e;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;        /* Fondo general oscuro */
+    --text-color: #f5f5f7;      /* Textos principales blancos */
+    --text-p: #d1d1d6;          /* Párrafos legibles gris claro */
+    --text-secondary: #a1a1a6;  /* Subtítulos */
+    --text-muted: #86868b;      /* Notas al pie */
+    --card-bg: #242424;         /* Tarjetas, botones e inputs oscuros */
+    --border-color: #38383a;    /* Bordes sutiles oscuros */
+    --hover-bg: #2c2c2e;        /* Efecto hover en botones oscuros */
+    --bar-bg: #2c2c2e;          /* Fondo de barra de progreso en modo oscuro */
+}
+
+/* ==========================================
+   BOTÓN FLOTANTE DE MODO
+   ========================================== */
+.modo-boton {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 32px;          
+    height: 32px;         
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg); 
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;   
+    font-size: 22px;      
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+    max-width: none;
+    margin: 0;
+}
+
+.modo-boton:hover {
+    transform: scale(1.1);
 }
